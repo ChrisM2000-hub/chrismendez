@@ -1,68 +1,303 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chris Mendez - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chris Mendez | Portfolio</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f0f0f0; color: #333; }
-    .container { max-width: 900px; margin: auto; padding: 20px; }
-    .experience { background: white; padding: 20px; border-radius: 8px; margin-top: 20px; }
-    .job { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; }
-    .job img { width: 60px; height: 60px; object-fit: contain; }
+    :root {
+      --bg: #f4f4f4;
+      --text: #333;
+      --primary: #2c3e50;
+      --secondary: #34495e;
+      --accent: #3498db;
+      --card: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1e1e1e;
+      --text: #f4f4f4;
+      --primary: #222831;
+      --secondary: #393e46;
+      --accent: #00adb5;
+      --card: #2c2c2c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    nav {
+      background: var(--secondary);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      padding: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .skills {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skills li {
+      background: var(--accent);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    .experience {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .experience-item {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .experience-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+
+    .experience-details {
+      flex: 1;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: var(--card);
+      color: var(--text);
+    }
+
+    form button {
+      background: #27ae60;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #219150;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
     @media (max-width: 600px) {
-      .job { flex-direction: column; align-items: flex-start; }
+      .experience-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <header>
     <h1>Chris Mendez</h1>
-    <p>Professional Portfolio</p>
-    <section class="experience">
-      <h2>Experience</h2>
-      <div class="job">
-        <img src="assets/logos/taskhive.png" alt="TaskHive Logo" />
-        <div>
-          <h3>Co-Founder - TaskHive PH</h3>
-          <p>Feb 2025 – Present | Remote, Philippines</p>
-          <p>Administrative Assistance, Virtual Assistance</p>
+    <p>Virtual Assistant | Tech Support | Community Builder</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate professional with experience in virtual assistance, community management, tech support, and blockchain advocacy. I enjoy helping teams grow and supporting businesses with innovative solutions and reliable service.
+    </p>
+  </section>
+
+  <section id="skills" class="container">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>Virtual Assistance</li>
+      <li>IT Support</li>
+      <li>Community Management</li>
+      <li>Content Creation</li>
+      <li>WordPress</li>
+      <li>Social Media</li>
+    </ul>
+  </section>
+
+  <section id="experience" class="container">
+    <h2>Experience</h2>
+
+    <div class="experience">
+
+      <div class="experience-item">
+        <img src="https://media.licdn.com/dms/image/D4D0BAQEt4sogAhYe2g/company-logo_100_100/0/1707712023464/taskhiveph_logo?e=1725494400&v=beta&t=7DHe_LtiYOyGweG0mwD3gqiSr-xT8XzdHDKrAKUuYqg" alt="TaskHive Logo">
+        <div class="experience-details">
+          <h3>Co-Founder</h3>
+          <p><strong>TaskHive PH</strong> | Philippines (Remote) | <em>Feb 2025 – Present</em></p>
+          <p>Providing administrative assistance, virtual assistant services, and strategic business support.</p>
         </div>
       </div>
-      <div class="job">
-        <img src="assets/logos/veratex.png" alt="Veratex Logo" />
-        <div>
-          <h3>Computer Support Technician - Veratex</h3>
-          <p>Feb 2025 – Present | On-site, Philippines</p>
-          <p>IT Support, Networking, Computer Repair</p>
+
+      <div class="experience-item">
+        <img src="https://media.licdn.com/dms/image/C4D0BAQFrNdJPB6VO9w/company-logo_100_100/0/1639140739095/veratex_logo?e=1725494400&v=beta&t=Wu1cW2Z-bN7-Mts_HiQrrxw1Xn0k2mj2Z-V1XegYReE" alt="Veratex Logo">
+        <div class="experience-details">
+          <h3>Computer Support Technician</h3>
+          <p><strong>Veratex</strong> | Philippines (On-site) | <em>Feb 2025 – Present</em></p>
+          <p>IT Support and Network Specialist. Provided technical support, network maintenance, and hardware troubleshooting.</p>
         </div>
       </div>
-      <div class="job">
-        <img src="assets/logos/pitchnhire.png" alt="Pitch N Hire Logo" />
-        <div>
-          <h3>Community Manager - Pitch N Hire</h3>
-          <p>Oct 2023 – Sep 2024 | Remote, India</p>
-          <p>Community engagement and client outreach</p>
+
+      <div class="experience-item">
+        <img src="https://media.licdn.com/dms/image/D4D0BAQGuJmf6vhEY3Q/company-logo_100_100/0/1705480775031?e=1725494400&v=beta&t=piU3hQ7ntAJCsDCVCFbdcv9N-VB5r0EZ8iZDAixXFaE" alt="Pitch N Hire Logo">
+        <div class="experience-details">
+          <h3>Community Manager</h3>
+          <p><strong>Pitch N Hire</strong> | India (Remote) | <em>Oct 2023 – Sep 2024</em></p>
+          <p>Managed and built a thriving community, focusing on engaging members and attracting potential clients.</p>
         </div>
       </div>
-      <div class="job">
-        <img src="assets/logos/oasis.png" alt="Oasis Protocol Logo" />
-        <div>
-          <h3>Ambassador - Oasis Protocol Foundation</h3>
-          <p>Sep 2022 – Oct 2023 | Remote, Philippines</p>
-          <p>Graphics and content creation for blockchain promotion</p>
+
+      <div class="experience-item">
+        <img src="https://media.licdn.com/dms/image/C560BAQFoJCCrYLuTxA/company-logo_100_100/0/1630657929225?e=1725494400&v=beta&t=QAmToVo9gZZ2KCNmpA1VrweOJY_xscknpmbYdOcs0ug" alt="Oasis Protocol Logo">
+        <div class="experience-details">
+          <h3>Ambassador</h3>
+          <p><strong>Oasis Protocol Foundation</strong> | Philippines (Remote) | <em>Sep 2022 – Oct 2023</em></p>
+          <p>Created engaging content and infographics to promote Oasis Protocol’s privacy-enabled blockchain technology.</p>
         </div>
       </div>
-      <div class="job">
-        <img src="assets/logos/polkally.png" alt="Polkally Logo" />
-        <div>
-          <h3>Community Manager - Polkally</h3>
-          <p>May 2021 – Jul 2022 | France</p>
-          <p>Community strategy, growth and moderation</p>
+
+      <div class="experience-item">
+        <img src="https://media.licdn.com/dms/image/C560BAQFNoM7lKc6UwQ/company-logo_100_100/0/1620382196467?e=1725494400&v=beta&t=5LDHTXKLP-u4FLJhSPNnKH1-Rd-Gtwlv3T-0LtI0FOo" alt="Polkally Logo">
+        <div class="experience-details">
+          <h3>Community Manager</h3>
+          <p><strong>Polkally</strong> | France | <em>May 2021 – Jul 2022</em></p>
+          <p>Managed online communities, supported users, and implemented growth strategies on social platforms.</p>
         </div>
       </div>
-    </section>
-  </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2>Contact Me</h2>
+    <form action="mailto:your.email@example.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Chris Mendez. All rights reserved.</p>
+  </footer>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Dark Mode</button>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", currentTheme === "dark" ? "light" : "dark");
+    }
+    // Set light as default
+    document.documentElement.setAttribute("data-theme", "light");
+  </script>
+
 </body>
 </html>
